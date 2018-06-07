@@ -1,4 +1,4 @@
-import React, { Component } from 'react
+import React, { Component } from 'react'
 import {
     ListView,
     ListViewSection,
@@ -26,7 +26,9 @@ class MessageList extends Component {
                 <Text color='#414141' size='13' bold>
                     {message.sender.name}:
                 </Text>
-                <Text color='414141' size='13'
+                <Text color='414141' size='13'>
+                {message.text}
+                </Text>
             </ListViewRow>
         )
     }

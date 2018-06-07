@@ -24,18 +24,32 @@ class Chat extends Component {
                 this.setState({ currentUser })
                 console.log('You are now connected to ChatKit')
                 return currentUser.subscribeToRoom({
-                    
+                    roomId: 8967989,
+                    messages: 100,
+                    hooks: {
+                        onNewMessage: message => {
+                            this.setState({
+                                messages: [...this.state.messages, message]
+                            })
+                        }
+                    }    
                 })
+            })
+            .then(currentRoom => {
+                this.setState({ currentRoom })
             })
             .catch(error => console.error('error', error))
     }
 
         render() {
             return (
-                <div>
-                    <h1>Chat Screen</h1>
+                <div className='wrapper'>
+                    <div className='chat'>
+                        <MessageList message={this.state.messages}/>
+                    </div>
                 </div>
             )
         }
 }
+
 export default Chat
