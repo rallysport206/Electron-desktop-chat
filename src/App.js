@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import UsernameForm from './UsernameForm'
+import Chat from './Chat'
 
 class App extends Component {
   state = {
     currentUsername: null,
-    currentId: null
+    currentId: null,
+    currentScreen: 'usernameForm'
   }
 
   onUsernameSubmitted = username => {
@@ -19,7 +21,8 @@ class App extends Component {
       .then(data => {
         this.setState({
           currentId: data.id,
-          currentUsername: data.name
+          currentUsername: data.name,
+          currentScreen: 'chat'
         })
       })
       .catch(error => {
@@ -28,7 +31,12 @@ class App extends Component {
   }
 
   render() {
-    return <UsernameForm handleSubmit={this.onUsernameSubmitted} />
+    if (this.state.currentScreen === 'usernameForm') {
+      return <UsernameForm handleSubmit={this.onUsernameSubmitted} />
+    }
+    if (this.state.currentScreen === 'chat') {
+      return <Chat currentId={this.state.currentId} />
+    }
   }
 }
 
