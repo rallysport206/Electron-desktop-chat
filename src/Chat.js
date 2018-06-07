@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ChatManager, TokenProvider } from '@pusher/chatkit'
 import MessageList from './MessageList'
 import SendMessageForm from './SendMessageFrom'
+import OnlineList from './OnlineList'
 
 class Chat extends React.Component {
     state = {
@@ -32,7 +33,10 @@ class Chat extends React.Component {
                             this.setState({
                                 messages: [...this.state.messages, message]
                             })
-                        }
+                        },
+                        onUserCameOnline: () => this.forceUpdate(),
+                        onUserWentOffline: () => this.forceUpdate(),
+                        onUserJoined: () => this.forceUpdate()
                     }    
                 })
             })
@@ -52,6 +56,12 @@ class Chat extends React.Component {
         render() {
             return (
                 <div className='wrapper'>
+                    <div>
+                        <OnlineList
+                            currentUser={this.state.currentUser}
+                            users={this.state.currentRoom.users}
+                        />    
+                    </div>
                     <div className='chat'>
                         <MessageList message={this.state.messages}/>
                         <SendMessageForm onSend={this.onSend} />
