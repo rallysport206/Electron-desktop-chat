@@ -19,7 +19,7 @@ class SendMessageFrom extends Component {
         }
     }
 
-    render(){
+    render() { 
         return(
             <div className='send-message-form-container'>
                 <form onSubmit={this.onSubmit} className='send-message-form'>
