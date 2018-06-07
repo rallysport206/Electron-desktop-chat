@@ -19,4 +19,17 @@ class MessageList extends Component {
             </ListView>
         )
     }
+    
+    renderItem(message) {
+        return (
+            <ListViewRow key={message.id}>
+                <Text color='#414141' size='13' bold>
+                    {message.sender.name}:
+                </Text>
+                <Text color='414141' size='13'
+            </ListViewRow>
+        )
+    }
 }
+
+export default MessageList
