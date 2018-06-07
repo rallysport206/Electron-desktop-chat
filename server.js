@@ -6,7 +6,7 @@ const cors = require ('cors')
 const Chatkit = require ('pusher-chatkit-server')
 
 const chatkit = new Chatkit.default({
-    instanceLocator: 'v1:us1:660404d4-3b36-4539-9c7a-38cf1adf8930'
+    instanceLocator: 'v1:us1:660404d4-3b36-4539-9c7a-38cf1adf8930',
     key: '571c2d7d-3454-4a0f-a89e-1a6dd48f34a9:37NZG04QFzkk8EB0lZ2Yo/akSsY6tklhTAD+jjgGxis='
 })
 
