@@ -27,7 +27,7 @@ class Chat extends React.Component {
                 console.log('You are now connected to ChatKit')
                 return currentUser.subscribeToRoom({
                     roomId: 8967989,
-                    messages: 100,
+                    messagesLimit: 100,
                     hooks: {
                         onNewMessage: message => {
                             this.setState({
