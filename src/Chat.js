@@ -3,6 +3,7 @@ import { ChatManager, TokenProvider } from '@pusher/chatkit'
 import MessageList from './MessageList'
 import SendMessageForm from './SendMessageFrom'
 import OnlineList from './OnlineList'
+// import OfflineList from './OfflineList'
 
 class Chat extends React.Component {
     state = {
